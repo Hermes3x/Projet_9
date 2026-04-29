@@ -1,5 +1,5 @@
 # Environnement virtuel
-.env/
+env/
 
 # Fichiers Python compilés
 __pycache__/
