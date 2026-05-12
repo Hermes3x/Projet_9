@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <section aria-label="Inscription et connexion"
+             style="display: flex; justify-content: space-between; align-items: flex-start; gap: 4rem;">
+
+        <!-- Colonne gauche : inscription -->
+        <div style="flex: 1;">
+            <h2>Inscrivez-vous maintenant</h2>
+            <p>
+                <a href="{% url 'signup' %}">
+                    <button type="button">S’inscrire</button>
+                </a>
+            </p>
+        </div>
+
+        <!-- Colonne droite : connexion -->
+        <div style="flex: 1; max-width: 300px;">
+            <h2>Connectez-vous</h2>
+            {% if message %}
+                <p>{{ message }}</p>
+            {% endif %}
+            <form method="post">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+
+                <p>
+                    {{ form.username.label_tag }}
+                    {{ form.username }}
+                    {{ form.username.errors }}
+                </p>
+                <p>
+                    {{ form.password.label_tag }}
+                    {{ form.password }}
+                    {{ form.password.errors }}
+                </p>
+                <button type="submit">Se connecter</button>
+            </form>
+        </div>
+    </section>
+{% endblock content %}

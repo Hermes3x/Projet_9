@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Tableau de bord</h1>
+    <p>Vous êtes connecté en tant que {{ request.user.username }}.
+        <a href="{% url 'logout' %}">Se déconnecter</a>
+    </p>
+{% endblock content %}
