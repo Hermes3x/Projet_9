@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Vos posts</h1>
+
+    <h2>Vos DEMANDE de CRITIQUE</h2>
+    <ul>
+    {% for ticket in tickets %}
+        {% include "blog/_ticket_snippet.html" with ticket=ticket %}
+
+            <!-- Boutons visibles uniquement pour l'auteur -->
+            {% if ticket.user == request.user %}
+                <a href="{% url 'ticket_update' ticket.id %}">Modifier</a>
+                <!-- On ajoutera plus tard un bouton Supprimer en POST -->
+                 <form action="{% url 'ticket_delete' ticket.id %}" method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit">Supprimer</button>
+                </form>
+            {% endif %}
+    {% empty %}
+        <li>Vous n'avez pas encore publié de DEMANDE de CRITIQUE.</li>
+    {% endfor %}
+    </ul>
+
+    <h2>Vos CRITIQUES</h2>
+    <ul>
+    {% for review in reviews %}
+        {% include "blog/_review_snippet.html" with review=review %}
+
+            {% if review.user == request.user %}
+                <a href="{% url 'review_update' review.id %}">Modifier</a>
+
+                <form action="{% url 'review_delete' review.id %}" method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit">Supprimer</button>
+                </form>
+            {% endif %}
+    {% empty %}
+        <li>Vous n'avez pas encore publié de critique.</li>
+    {% endfor %}
+    </ul>
+{% endblock content %}

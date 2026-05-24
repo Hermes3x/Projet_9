@@ -1,0 +1,251 @@
+/* Layout global */
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    margin: 0;
+    background-color: #f5f5f5;
+    color: #222;
+}
+
+/* Conteneur centré pour tout le site */
+.site-wrapper {
+    max-width: 800px;
+    margin: 0 auto;        /* centre horizontalement */
+    background-color: #fff; /* si tu veux fond blanc pour tout, sinon enlève */
+    min-height: 100vh;     /* occupe toute la hauteur */
+    box-shadow: 0 0 10px rgba(0,0,0,0.05); /* léger effet carte globale */
+}
+
+/* Header + nav */
+.site-header {
+    background-color: #222;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.site-title {
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.main-nav a {
+    color: #fff;
+    margin-left: 15px;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.main-nav a:hover {
+    text-decoration: underline;
+}
+
+/* Contenu centré */
+.page-content {
+    padding: 20px 20px 40px;
+}
+
+.page-content ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Titres de page */
+.page-content h1 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+/* Cartes ticket / review */
+.ticket,
+.review {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+}
+
+.review-ticket {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 10px 12px;
+    margin-top: 10px;
+    background-color: #fafafa;
+}
+
+.review-ticket p:first-child {
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.review-ticket h4 {
+    margin: 5px 0;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.review-ticket img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 8px 0;
+}
+
+.ticket p:first-child,
+.review p:first-child {
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.ticket h3,
+.review h3 {
+    margin: 5px 0;
+    font-size: 1.1rem;
+}
+
+.review h4 {
+    margin: 8px 0 4px;
+    font-size: 1rem;
+    font-weight: normal;
+    color: #444;
+}
+
+.ticket img,
+.review img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 8px 0;
+}
+
+.ticket p,
+.review p {
+    margin: 3px 0;
+    line-height: 1.4;
+}
+
+/* Liens d’action (modifier/supprimer, etc.) */
+.action-links a,
+.action-links form {
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.action-links a {
+    color: #0069d9;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.action-links a:hover {
+    text-decoration: underline;
+}
+
+.flux-actions {
+    text-align: center;  /* centre les inline / inline-block */
+    margin-bottom: 15px;
+}
+
+.fluxbutton {
+    display: inline-block;
+    padding: 4px 10px;
+    background-color: #d9534f;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+    font-size: 0.85rem;
+    width: 150px;
+    text-align: center; 
+    margin: 0 60px; 
+}
+
+.button {
+    display: inline-block;
+    padding: 4px 10px;
+    background-color: #d9534f;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+    font-size: 0.85rem;
+    width: 150px;
+    text-align: center; 
+}
+
+.button:hover {
+    background-color: #d9534f;
+}
+
+button {
+    background-color: #d9534f;
+    color: #fff;
+    border: none;
+    padding: 4px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+button:hover {
+    background-color: #c9302c;
+}
+
+/* Formulaires */
+form {
+    margin: 10px 0;
+}
+
+label {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.9rem;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="file"],
+textarea,
+select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 6px 8px;
+    margin-top: 3px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"],
+input[type="button"] {
+    margin-top: 10px;
+}
+
+/* Messages éventuels */
+.error,
+.success,
+.info {
+    padding: 8px 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}

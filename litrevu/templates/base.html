@@ -1,15 +1,31 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="utf-8">
-        <title>LITReview</title>
-    </head>
-    <body>
-        <header>
-            <h1>LITReview</h1>
+<head>
+    <meta charset="utf-8">
+    <title>LITReview</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="site-wrapper">
+        <header class="site-header">
+            <h1 class="site-title">LITReview</h1>
+
+            {% if request.user.is_authenticated %}
+                <nav class="main-nav">
+                    <a href="{% url 'home' %}">Accueuil</a>
+
+                    <a href="{% url 'feed' %}">Flux</a>
+                    <a href="{% url 'posts_list' %}">Posts</a>
+                    <a href="{% url 'subscriptions' %}">Abonnements</a>
+                    <a href="{% url 'logout' %}">Se déconnecter</a>
+                </nav>
+            {% endif %}
         </header>
-        <main>
+
+        <main class="page-content">
             {% block content %}{% endblock content %}
         </main>
-    </body>
+    </div>
+</body>
 </html>

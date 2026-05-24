@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Fil d'actualité</h1>
+
+    <div class="flux-actions">
+        {% if request.user.is_authenticated %}
+            <a class="fluxbutton" href="{% url 'ticket_create' %}">
+                DEMANDER une critique
+            </a>
+            <a class="fluxbutton" href="{% url 'review_create' %}">
+                CRÉER une critique
+            </a>
+        {% endif %}
+    </div>
+
+    <p>Nombre de posts : {{ posts|length }}</p>
+
+    {% for post in posts %}
+        {% if post.content_type == "TICKET" %}
+            {% include "blog/_ticket_snippet.html" with ticket=post %}
+        {% elif post.content_type == "REVIEW" %}
+            {% include "blog/_review_snippet.html" with review=post %}
+        {% endif %}
+    {% empty %}
+        <p>Aucun contenu dans votre flux pour le moment.</p>
+    {% endfor %}
+{% endblock content %}

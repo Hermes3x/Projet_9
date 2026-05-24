@@ -1,0 +1,16 @@
+<div class="ticket">
+    <p>DEMANDE de CRITIQUE - {{ ticket.user.username }}</p>
+    <h3>{{ ticket.title }}</h3>
+    {% if ticket.description %}
+        <p>{{ ticket.description }}</p>
+    {% endif %}
+    {% if ticket.image %}
+        <img src="{{ ticket.image.url }}" alt="Image pour {{ ticket.title }}">
+    {% endif %}
+    <p>{{ ticket.time_created }}</p>
+    <div class="ticket-actions">
+    {% if request.user.is_authenticated %}
+        <a class="button" href="{% url 'review_reply' ticket.id %}">Créer une critique</a>
+    {% endif %}
+</div>
+</div>

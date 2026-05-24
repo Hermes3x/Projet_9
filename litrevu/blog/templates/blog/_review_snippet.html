@@ -1,0 +1,19 @@
+<div class="review">
+    <p>Vous avez publié une CRITIQUE</p>
+    <h3>{{ review.headline }} - {{ review.rating }}/5</h3>
+    <p>{{ review.body }}</p>
+
+    <div class="review-ticket">
+        <p>DEMANDE de CRITIQUE - {{ review.ticket.user.username }}</p>
+        <h4>{{ review.ticket.title }}</h4>
+        {% if review.ticket.description %}
+            <p>{{ review.ticket.description }}</p>
+        {% endif %}
+        {% if review.ticket.image %}
+            <img src="{{ review.ticket.image.url }}" alt="Image pour {{ review.ticket.title }}">
+        {% endif %}
+        <p>{{ review.ticket.time_created }}</p>
+    </div>
+
+    <p>{{ review.time_created }}</p>
+</div>

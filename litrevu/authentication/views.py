@@ -1,4 +1,3 @@
-from django.conf import settings
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 
@@ -8,6 +7,7 @@ from . import forms
 def logout_user(request):
     logout(request)
     return redirect('login')
+
 
 def login_page(request):
     form = forms.LoginForm()
@@ -27,6 +27,7 @@ def login_page(request):
     return render(
         request, "authentication/login.html", context={'form': form, 'message': message})
 
+
 def signup_page(request):
     form = forms.SignupForm()
     if request.method == 'POST':
@@ -35,5 +36,5 @@ def signup_page(request):
             user = form.save()
             # auto-login user
             login(request, user)
-            return redirect(settings.LOGIN_REDIRECT_URL)
+            return redirect('home')
     return render(request, 'authentication/signup.html', context={'form': form})
