@@ -20,7 +20,7 @@
     <p>{{ review.body }}</p>
 
     <div class="review-ticket">
-        {% if review.user == request.user %}
+        {% if review.ticket.user == request.user %}
             <p>Vous avez publié une DEMANDE de CRITIQUE - le {{ review.ticket.time_created }}</p>
         {% else %}
             <p>{{ review.ticket.user.username }} a publié une DEMANDE de CRITIQUE - le {{ review.ticket.time_created }}</p>

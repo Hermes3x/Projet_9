@@ -30,6 +30,17 @@ body {
     font-size: 1.3rem;
 }
 
+.site-header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.nav-user {
+    color: #aaa;
+    font-size: 0.8rem;
+}
+
 .main-nav a {
     color: #fff;
     margin-left: 15px;
