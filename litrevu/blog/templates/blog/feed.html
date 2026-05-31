@@ -10,8 +10,6 @@
         {% endif %}
     </div>
 
-    <p>Nombre de posts : {{ posts|length }}</p>
-
     {% for post in posts %}
         {% if post.content_type == "TICKET" %}
             {% include "blog/_ticket_snippet.html" with ticket=post %}

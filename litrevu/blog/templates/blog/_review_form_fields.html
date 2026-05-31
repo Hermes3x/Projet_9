@@ -1,5 +1,3 @@
-{# blog/_review_form_fields.html #}
-
 {{ review_form.non_field_errors }}
 
 <div>
@@ -13,12 +11,17 @@
     {{ review_form.body.errors }}
 </div>
 <div class="rating-input">
-    <label>Note</label>
-    <div class="stars-input">
+    <span id="rating-label">Note</span>
+    <div class="stars-input" role="group" aria-labelledby="rating-label">
         {% for value in "54321" %}
-            <input type="radio" id="star{{ value }}" name="rating" value="{{ value }}"
-                {% if review_form.instance.rating|stringformat:"s" == value %}checked{% endif %}>
+            <input type="radio"
+                   id="star{{ value }}"
+                   name="rating"
+                   value="{{ value }}"
+                   aria-label="{{ value }} étoile{% if value != '1' %}s{% endif %}"
+                   {% if review_form.instance.rating|stringformat:"s" == value %}checked{% endif %}>
             <label for="star{{ value }}">★</label>
         {% endfor %}
     </div>
+    {{ review_form.rating.errors }}
 </div>
