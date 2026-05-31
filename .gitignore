@@ -6,9 +6,6 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# SQLite
-*.sqlite3
-
 # Fichiers de log
 *.log
 
