@@ -15,7 +15,7 @@ git clone <URL_DU_REPO>
 cd litrevu
 python -m venv env
 source env/bin/activate  # Windows: env\Scripts\activate
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
 
 ## 3. Base de données
