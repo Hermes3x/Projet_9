@@ -21,7 +21,7 @@ def login_page(request):
             )
             if user is not None:
                 login(request, user)
-                return redirect('home')
+                return redirect('feed')
             else:
                 message = "Identifiants invalides"
     return render(
@@ -36,5 +36,5 @@ def signup_page(request):
             user = form.save()
             # auto-login user
             login(request, user)
-            return redirect('home')
+            return redirect('feed')
     return render(request, 'authentication/signup.html', context={'form': form})

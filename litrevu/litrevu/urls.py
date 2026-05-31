@@ -12,7 +12,6 @@ urlpatterns = [
     path('', authentication.views.login_page, name='login'),
 
     path('signup/', authentication.views.signup_page, name='signup'),
-    path('home/', blog.views.home, name='home'),
 
     path('tickets/create/', blog.views.ticket_create, name='ticket_create'),
     path('tickets/<int:ticket_id>/edit/', blog.views.ticket_update, name='ticket_update'),

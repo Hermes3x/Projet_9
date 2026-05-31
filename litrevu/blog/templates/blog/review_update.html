@@ -12,25 +12,7 @@
 
 <form method="post">
     {% csrf_token %}
-
-    {{ review_form.non_field_errors }}
-
-    <div>
-        {{ review_form.headline.label_tag }}<br>
-        {{ review_form.headline }}
-        {{ review_form.headline.errors }}
-    </div>
-    <div>
-        {{ review_form.body.label_tag }}<br>
-        {{ review_form.body }}
-        {{ review_form.body.errors }}
-    </div>
-    <div>
-        {{ review_form.rating.label_tag }}<br>
-        {{ review_form.rating }}
-        {{ review_form.rating.errors }}
-    </div>
-
+    {% include "blog/_review_form_fields.html" %}
     <button type="submit">Envoyer</button>
 </form>
 {% endblock content %}

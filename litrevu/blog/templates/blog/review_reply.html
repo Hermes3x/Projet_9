@@ -12,7 +12,7 @@
 
 <form method="post">
     {% csrf_token %}
-    {{ review_form.as_p }}
+    {% include "blog/_review_form_fields.html" %}
     <button type="submit">Envoyer</button>
 </form>
 {% endblock content %}

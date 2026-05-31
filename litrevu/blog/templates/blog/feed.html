@@ -5,12 +5,8 @@
 
     <div class="flux-actions">
         {% if request.user.is_authenticated %}
-            <a class="fluxbutton" href="{% url 'ticket_create' %}">
-                DEMANDER une critique
-            </a>
-            <a class="fluxbutton" href="{% url 'review_create' %}">
-                CRÉER une critique
-            </a>
+            <a class="btn" href="{% url 'ticket_create' %}">DEMANDER une critique</a>
+            <a class="btn" href="{% url 'review_create' %}">CRÉER une critique</a>
         {% endif %}
     </div>
 

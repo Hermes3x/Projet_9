@@ -10,7 +10,7 @@
             <h2>Inscrivez-vous maintenant</h2>
             <p>
                 <a href="{% url 'signup' %}">
-                    <button type="button">S’inscrire</button>
+                    <input class="btn" type="submit" value="S'inscrire">
                 </a>
             </p>
         </div>
@@ -35,7 +35,7 @@
                     {{ form.password }}
                     {{ form.password.errors }}
                 </p>
-                <button type="submit">Se connecter</button>
+                <input class="btn" type="submit" value="Se connecter">
             </form>
         </div>
     </section>

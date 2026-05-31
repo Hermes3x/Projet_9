@@ -9,10 +9,10 @@ body {
 /* Conteneur centré pour tout le site */
 .site-wrapper {
     max-width: 800px;
-    margin: 0 auto;        /* centre horizontalement */
-    background-color: #fff; /* si tu veux fond blanc pour tout, sinon enlève */
-    min-height: 100vh;     /* occupe toute la hauteur */
-    box-shadow: 0 0 10px rgba(0,0,0,0.05); /* léger effet carte globale */
+    margin: 0 auto;
+    background-color: #fff;
+    min-height: 100vh;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
 }
 
 /* Header + nav */
@@ -52,10 +52,24 @@ body {
     padding: 0;
 }
 
-/* Titres de page */
 .page-content h1 {
     font-size: 1.4rem;
     margin-bottom: 15px;
+}
+
+h2 {
+    margin-top: 45px;
+}
+
+.follow-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* ou flex-start + gap */
+    gap: 8px;
+}
+
+.follow-item form {
+    margin: 0;
 }
 
 /* Cartes ticket / review */
@@ -68,6 +82,7 @@ body {
     margin-bottom: 15px;
 }
 
+/* Bloc ticket inclus dans une review */
 .review-ticket {
     border: 1px solid #ddd;
     border-radius: 6px;
@@ -96,6 +111,7 @@ body {
     margin: 8px 0;
 }
 
+/* Typo dans les cartes */
 .ticket p:first-child,
 .review p:first-child {
     font-size: 0.85rem;
@@ -131,69 +147,57 @@ body {
     line-height: 1.4;
 }
 
-/* Liens d’action (modifier/supprimer, etc.) */
-.action-links a,
+.action-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 5px;
+}
+
 .action-links form {
-    display: inline-block;
-    margin-right: 8px;
+    margin: 0;
 }
 
-.action-links a {
-    color: #0069d9;
-    text-decoration: none;
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 12px;
+    border-radius: 3px;
     font-size: 0.9rem;
+    text-align: center;
+    width: 200px;
+    height: 60px;
+    cursor: pointer;
+    line-height: 1;
+    box-sizing: border-box;
+
+    /* style par défaut : noir sur blanc */
+    color: #000000;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    text-decoration: none;
+    margin: 15px;
 }
 
-.action-links a:hover {
-    text-decoration: underline;
+.btn-danger {
+    color: #ffffff;
+    background-color: #b00020;  /* rouge foncé accessible */
+    border-color: #b00020;
+}
+
+.btn-danger-unfollow {
+    width: 180px;
+    height: 40px;
 }
 
 .flux-actions {
-    text-align: center;  /* centre les inline / inline-block */
+    text-align: center;
     margin-bottom: 15px;
 }
 
-.fluxbutton {
-    display: inline-block;
-    padding: 4px 10px;
-    background-color: #d9534f;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 3px;
-    font-size: 0.85rem;
-    width: 150px;
-    text-align: center; 
-    margin: 0 60px; 
-}
-
-.button {
-    display: inline-block;
-    padding: 4px 10px;
-    background-color: #d9534f;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 3px;
-    font-size: 0.85rem;
-    width: 150px;
-    text-align: center; 
-}
-
-.button:hover {
-    background-color: #d9534f;
-}
-
-button {
-    background-color: #d9534f;
-    color: #fff;
-    border: none;
-    padding: 4px 10px;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 0.85rem;
-}
-
-button:hover {
-    background-color: #c9302c;
+.flux-actions .btn {
+    margin: 0 20px;
 }
 
 /* Formulaires */
@@ -248,4 +252,36 @@ input[type="button"] {
 .info {
     background-color: #d1ecf1;
     color: #0c5460;
+}
+
+.stars-input {
+    direction: rtl; /* pour que 5 soit à gauche */
+    unicode-bidi: bidi-override;
+    display: inline-flex;
+}
+
+.stars-input input[type="radio"] {
+    display: none;
+}
+
+.stars-input label {
+    font-size: 1.3rem;
+    color: #ccc;
+    cursor: pointer;
+    padding: 0 2px;
+}
+
+.stars-input input[type="radio"]:checked ~ label {
+    color: #f5c518;
+}
+
+.stars-input label:hover,
+.stars-input label:hover ~ label {
+    color: #f5c518;
+}
+
+.stars {
+    font-size: 0.95rem;
+    color: #f5c518; /* jaune type étoiles */
+    margin-left: 8px;
 }

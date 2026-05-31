@@ -28,7 +28,7 @@ def review_create(request):
             review.user = request.user
             review.save()
 
-            return redirect('home')
+            return redirect('feed')
     else:
         ticket_form = TicketForm()
         review_form = ReviewForm()
@@ -52,7 +52,7 @@ def review_reply(request, ticket_id):
             review.user = request.user
             review.save()
 
-            return redirect('home')
+            return redirect('feed')
     else:
         review_form = ReviewForm()
 
@@ -100,7 +100,7 @@ def ticket_create(request):
             ticket = form.save(commit=False)
             ticket.user = request.user
             ticket.save()
-            return redirect('home')
+            return redirect('feed')
     else:
         form = TicketForm()
     return render(request, 'blog/ticket_form.html', {"form": form})
@@ -113,7 +113,7 @@ def ticket_update(request, ticket_id):
         form = TicketForm(request.POST, request.FILES, instance=ticket)
         if form.is_valid():
             form.save()  # user ne change pas, instance déjà liée
-            return redirect('home')
+            return redirect('feed')
     else:
         form = TicketForm(instance=ticket)
     return render(request, 'blog/ticket_form.html', {"form": form})
@@ -121,8 +121,8 @@ def ticket_update(request, ticket_id):
 
 @login_required
 def posts_list(request):
-    tickets = Ticket.objects.filter(user=request.user)
-    reviews = Review.objects.filter(user=request.user)
+    tickets = sorted(Ticket.objects.filter(user=request.user), key=lambda obj: obj.time_created, reverse=True)
+    reviews = sorted(Review.objects.filter(user=request.user), key=lambda obj: obj.time_created, reverse=True)
     context = {
         "tickets": tickets,
         "reviews": reviews,
@@ -238,7 +238,7 @@ def feed(request):
         review.content_type = "REVIEW"
         my_tickets_reviews.append(review)
 
-    feed_content = my_tickets + my_review + all_followed_tickets + all_followed_reviews + my_tickets_reviews
+    feed_content = my_tickets + my_review + all_followed_tickets + all_followed_reviews
     posts = sorted(feed_content, key=lambda obj: obj.time_created, reverse=True)
 
     context = {"posts": posts}

@@ -13,8 +13,6 @@
 
             {% if request.user.is_authenticated %}
                 <nav class="main-nav">
-                    <a href="{% url 'home' %}">Accueuil</a>
-
                     <a href="{% url 'feed' %}">Flux</a>
                     <a href="{% url 'posts_list' %}">Posts</a>
                     <a href="{% url 'subscriptions' %}">Abonnements</a>

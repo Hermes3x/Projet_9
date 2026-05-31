@@ -15,11 +15,11 @@
 <h2>Utilisateurs que vous suivez</h2>
 <ul>
 {% for user in following %}
-    <li>
-        {{ user.username }}
-        <form action="{% url 'unsubscribe' user.id %}" method="post" style="display:inline;">
+    <li class="follow-item">
+        <span>{{ user.username }}</span>
+        <form action="{% url 'unsubscribe' user.id %}" method="post">
             {% csrf_token %}
-            <button type="submit">Se désabonner</button>
+            <button class="btn btn-danger-unfollow" type="submit">Se désabonner</button>
         </form>
     </li>
 {% empty %}
