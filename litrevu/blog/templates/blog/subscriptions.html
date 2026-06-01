@@ -15,7 +15,7 @@
 <h2>Utilisateurs que vous suivez</h2>
 <ul>
 {% for user in following %}
-    <li class="follow-item">
+    <li class="follow-item follow-card">
         <span>{{ user.username }}</span>
         <form action="{% url 'unsubscribe' user.id %}" method="post">
             {% csrf_token %}

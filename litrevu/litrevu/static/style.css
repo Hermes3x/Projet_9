@@ -200,6 +200,9 @@ h2 {
 .btn-danger-unfollow {
     width: 180px;
     height: 40px;
+    color: #ffffff;
+    background-color: #b00020;  /* rouge foncé accessible */
+    border-color: #b00020;
 }
 
 .flux-actions {
@@ -295,4 +298,12 @@ input[type="button"] {
     font-size: 0.95rem;
     color: #f5c518; /* jaune type étoiles */
     margin-left: 8px;
+}
+
+.follow-card {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    background-color: #fff;
 }
