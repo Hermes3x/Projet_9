@@ -47,7 +47,9 @@ class ReviewForm(forms.ModelForm):
             "rating": "Note",
             "body": "Commentaire",
         }
-
+        widgets = {
+            "body": forms.Textarea(attrs={"rows": 6, "cols": 60}),
+        }
 
 User = get_user_model()
 
