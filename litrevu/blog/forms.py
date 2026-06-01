@@ -25,6 +25,9 @@ class TicketForm(forms.ModelForm):
             "description": "Description",
             "image": "Image",
         }
+        widgets = {
+            "body": forms.Textarea(attrs={"rows": 6, "cols": 60}),
+        }
 
 
 class ReviewForm(forms.ModelForm):
