@@ -73,6 +73,9 @@ def review_reply(request, ticket_id):
     """
     ticket = get_object_or_404(Ticket, id=ticket_id)
 
+    if Review.objects.filter(ticket=ticket).exists():
+        return redirect('feed')  # ou messages.error + redirect
+
     if request.method == "POST":
         review_form = ReviewForm(request.POST)
         if review_form.is_valid():

@@ -16,7 +16,11 @@
 
     <div class="action-links">
         {% if request.user.is_authenticated %}
-            <a class="btn" href="{% url 'review_reply' ticket.id %}">Créer une critique</a>
+            {% if not ticket.reviews.exists %}
+                <a class="btn" href="{% url 'review_reply' ticket.id %}">Créer une critique</a>
+            {% endif %}
         {% endif %}
     </div>
 </div>
+
+
