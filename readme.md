@@ -12,7 +12,7 @@ Application web Django permettant de demander et publier des critiques de livres
 
 ```bash
 git clone <URL_DU_REPO>
-cd litrevu
+cd 'Projet_9\litrevu'
 python -m venv env
 source env/bin/activate  # Windows: env\Scripts\activate
 python -m pip install -r requirements.txt
